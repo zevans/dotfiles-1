@@ -1,0 +1,3 @@
+[submodule "dotvim/bundle/vundle"]
+	path = dotvim/bundle/vundle
+	url = https://github.com/gmarik/vundle.git
