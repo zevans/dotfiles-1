@@ -20,6 +20,7 @@ set rtp+=~/.vim/bundle/vundle/             " Add Vundle subdir to run time path
 call vundle#rc()                           " Enable vundle
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'git://git.wincent.com/command-t.git'
+Bundle 'Lokaltog/vim-powerline'
 filetype plugin indent on                  " (Re)enable filetype and indenting
 
 "==============================================================================
@@ -29,6 +30,7 @@ filetype plugin indent on                  " (Re)enable filetype and indenting
 set history=50      " Longer command history for q:
 set vb              " No audible bell
 let mapleader= ","  " Remapped from "\" for Command(,)T
+set laststatus=2    " Always show status bar for powerline
 
 "==============================================================================
 " Appearance options
