@@ -19,14 +19,16 @@ filetype off                               " Disable for Vundle load
 set rtp+=~/.vim/bundle/vundle/             " Add Vundle subdir to run time path
 call vundle#rc()                           " Enable vundle
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'git://git.wincent.com/command-t.git'
 filetype plugin indent on                  " (Re)enable filetype and indenting
 
 "==============================================================================
 " Basic options
 "------------------------------------------------------------------------------
 
-set history=50  " Longer command history for q:
-set vb          " No audible bell
+set history=50      " Longer command history for q:
+set vb              " No audible bell
+let mapleader= ","  " Remapped from "\" for Command(,)T
 
 "==============================================================================
 " Appearance options
