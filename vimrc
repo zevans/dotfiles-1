@@ -48,8 +48,8 @@ colorscheme solarized
 
 if has('gui_running')
   set background=light
+  set guifont=Monaco:h18
 endif
-set guifont=Monaco:h18
 
 "==============================================================================
 " Tab and indent options
