@@ -41,14 +41,18 @@ set smartcase       "     unless search contains Uppercase character
 
 syntax on
 set number             " Turn this off for copy with 'set nonumber'
-set colorcolumn=80     " Marks the 80th character column
+if exists('+colorcolumn') " Marks the 80th character column
+  set colorcolumn=80
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
 set background=dark
 colorscheme solarized
 :call togglebg#map("") " Required to call activate function
 
 if has('gui_running')
   set background=light
-  set guifont=Monaco:h18
+  set guifont=Menlo:h18
 endif
 
 "==============================================================================
