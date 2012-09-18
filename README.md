@@ -5,7 +5,9 @@
     git submodule update
 
 # Setup links from home directory as appropriate
+    ln -s dotfiles/bash_profile .bash_profile
     ln -s dotfiles/vimrc     .vimrc
+    ln -s dotfiles/gvimrc    .gvimrc
     ln -s dotfiles/dotvim/   .vim
     ln -s dotfiles/tmux.conf .tmux.conf
 
@@ -16,3 +18,7 @@
     cd dotvim/bundle/command-t/ruby/command-t/
     ruby extconf.rb
     make
+
+# Install ack per platform
+    sudo apt-get install ack-grep    # Debian/Ubuntu
+    brew install ack                 # OS X with homebrew
