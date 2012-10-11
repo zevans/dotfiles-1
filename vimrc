@@ -27,6 +27,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'puppetlabs/puppet-syntax-vim'
+Bundle 'jeffkreeftmeijer/vim-numbertoggle'
 filetype plugin indent on                  " (Re)enable filetype and indenting
 
 "==============================================================================
@@ -40,6 +41,8 @@ set laststatus=2    " Always show status bar for powerline
 "set t_Co=16        " Use in case of xterm sans 256 color
 set ignorecase      " Searches are case insenstive by default
 set smartcase       "     unless search contains Uppercase character
+set wildmode=longest,list,full " more natural tab completion
+set wildmenu
 
 "==============================================================================
 " Appearance options
@@ -61,15 +64,17 @@ colorscheme solarized
 " Tab and indent options
 "------------------------------------------------------------------------------
 
-set tabstop=4         " Number of spaces to use for displaying tabs
+set tabstop=5         " Number of spaces to use for displaying tabs
 set shiftwidth=2      " Number of spaces to use for autoindenting
 set softtabstop=2     " When <BS>, pretend a tab is removed, even if spaces
-"set expandtab         " Expand tabs to spaces (overloadable by file type later)
+set expandtab         " Expand tabs to spaces (overloadable by file type later)
 set smartindent       " Increases indent on the next line for '{' and others
 
-autocmd Filetype ruby   setlocal ts=2 sts=2 sw=2 expandtab
-autocmd Filetype yaml   setlocal ts=2 sts=2 sw=2 expandtab
-autocmd Filetype puppet setlocal ts=2 sts=2 sw=2 expandtab
+"autocmd Filetype ruby     setlocal ts=2 sts=2 sw=2 expandtab
+"autocmd Filetype yaml     setlocal ts=2 sts=2 sw=2 expandtab
+"autocmd Filetype puppet   setlocal ts=2 sts=2 sw=2 expandtab
+"autocmd Filetype markdown setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype sh setlocal ts=4 noexpandtab
 
 "==============================================================================
 " Add "C-p" insert paste mode toggle for pasting indented code into console VIM
