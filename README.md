@@ -11,6 +11,7 @@
     ln -s dotfiles/gvimrc       .gvimrc
     ln -s dotfiles/dotvim/      .vim
     ln -s dotfiles/tmux.conf    .tmux.conf
+    ln -s ~/dotfiles/ackrc      ~/.ackrc
 
 # Inside of vim, run
     :BundleInstall
