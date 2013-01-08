@@ -24,3 +24,6 @@
 # Install ack per platform
     sudo apt-get install ack-grep    # Debian/Ubuntu
     brew install ack                 # OS X with homebrew
+
+# Configure global gitignore
+    git config --global core.excludesfile ~/dotfiles/gitignore_global
