@@ -1,6 +1,9 @@
-source dotfiles/bash_completion.d/git-completion.bash
-source dotfiles/bash_completion.d/git-prompt.sh
-source dotfiles/bash_completion.d/tmux
+source ~/dotfiles/bash_completion.d/git-completion.bash
+source ~/dotfiles/bash_completion.d/git-prompt.sh
+source ~/dotfiles/bash_completion.d/tmux
+source ~/dotfiles/bash/env
+source ~/dotfiles/bash/config
+source ~/dotfiles/bash/aliases
 
 if [ $OSTYPE==darwin11 ]; then
 	alias vim="mvim -v"
@@ -37,6 +40,9 @@ GIT_PS1_SHOWUNTRACKEDFILES="true"
 # of values: verbose       show number of commits ahead/behind (+/-) upstream
 GIT_PS1_SHOWUPSTREAM="verbose git"
 
+#Keep git autocompletion for g alias function
+complete -o default -o nospace -F _git g
+
 RED="\[\033[0;31m\]"
 YELLOW="\[\033[0;33m\]"
 GREEN="\[\033[0;32m\]"
@@ -45,3 +51,5 @@ RESET="\[\033[0;0;m\]"
 PS1="$GREEN\w$RESET\$(__git_ps1 \" $RED(%s)$RESET\")\$ "
 
 unset RED YELLOW GREEN RESET
+
+set -o vi

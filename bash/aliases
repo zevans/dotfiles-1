@@ -1,0 +1,11 @@
+alias l='ls'
+alias ll='ls -alh'
+alias reload='source ~/dotfiles/bash/aliases'
+alias ea='mvim -v ~/dotfiles/bash/aliases && reload'
+alias h=history
+alias g=git
+alias s='git status'
+alias d='git diff'
+alias a='git add'
+alias c='git commit'
+alias ev='vim ~/.vimrc'
