@@ -3,10 +3,10 @@
 " Credits:        http://zanshin.net/2011/11/15/using-vim/
 "                 https://gist.github.com/1367558#file_.vimrc
 "
-" Dependencies:   https://github.com/gmarik/vundle 
+" Dependencies:   https://github.com/gmarik/vundle
 "
 "==============================================================================
-" Use Vim settings rather than vi settings (must be first) 
+" Use Vim settings rather than vi settings (must be first)
 "------------------------------------------------------------------------------
 
 set nocompatible
@@ -16,6 +16,7 @@ set nocompatible
 " Refresh with :BundleInstall
 "------------------------------------------------------------------------------
 
+filetype on                                " Enable it first for git exit code
 filetype off                               " Disable for Vundle load
 set rtp+=~/.vim/bundle/vundle/             " Add Vundle subdir to run time path
 call vundle#rc()                           " Enable vundle
@@ -28,6 +29,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'puppetlabs/puppet-syntax-vim'
 Bundle 'jeffkreeftmeijer/vim-numbertoggle'
+Bundle 'bronson/vim-trailing-whitespace'
 filetype plugin indent on                  " (Re)enable filetype and indenting
 
 "==============================================================================
@@ -45,6 +47,11 @@ set wildmode=longest,list,full " more natural tab completion
 set wildmenu
 
 "==============================================================================
+" Key Mappings
+"------------------------------------------------------------------------------
+inoremap jj <Esc>
+
+"==============================================================================
 " Appearance options
 "------------------------------------------------------------------------------
 
@@ -52,11 +59,7 @@ syntax on
 set number             " Turn this off for copy with 'set nonumber'
 if exists('+colorcolumn') " Marks the 80th character column
   set colorcolumn=80
-else
-  "" Super annoying when reading other's code
-  "au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-endif
-set background=dark
+set background=light
 colorscheme solarized
 :call togglebg#map("") " Required to call activate function
 
@@ -88,7 +91,7 @@ set showmode
 " Forced file types
 "------------------------------------------------------------------------------
 
-"au! BufRead,BufNewFile *.pp  setfiletype ruby "for Puppet 
+"au! BufRead,BufNewFile *.pp  setfiletype ruby "for Puppet
 
 "==============================================================================
 " If none found file types
@@ -106,5 +109,5 @@ augroup END
 "let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
 "==============================================================================
-" 
+"
 "------------------------------------------------------------------------------
