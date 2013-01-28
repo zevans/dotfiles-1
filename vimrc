@@ -50,6 +50,7 @@ set wildmenu
 " Key Mappings
 "------------------------------------------------------------------------------
 inoremap jj <Esc>
+map <leader>v :tabedit $MYVIMRC<CR>
 
 "==============================================================================
 " Appearance options
@@ -110,5 +111,21 @@ augroup END
 "let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
 "==============================================================================
+" Source the vimrc file after saving it; Map leader-v to edit
+"------------------------------------------------------------------------------
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+
+"==============================================================================
+" When editing a file, always jump to the last known cursor position
+"------------------------------------------------------------------------------
+autocmd BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif
+
+"==============================================================================
 "
 "------------------------------------------------------------------------------
+
