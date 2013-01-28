@@ -38,7 +38,7 @@ filetype plugin indent on                  " (Re)enable filetype and indenting
 
 set history=50      " Longer command history for q:
 set vb              " No audible bell
-let mapleader= ","  " Remapped from "\" for Command(,)T
+let mapleader= ","  " Remapped from \"
 set laststatus=2    " Always show status bar for powerline
 "set t_Co=16        " Use in case of xterm sans 256 color
 set ignorecase      " Searches are case insenstive by default
@@ -59,6 +59,7 @@ syntax on
 set number             " Turn this off for copy with 'set nonumber'
 if exists('+colorcolumn') " Marks the 80th character column
   set colorcolumn=80
+endif
 set background=light
 colorscheme solarized
 :call togglebg#map("") " Required to call activate function
