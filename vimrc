@@ -30,6 +30,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'puppetlabs/puppet-syntax-vim'
 Bundle 'jeffkreeftmeijer/vim-numbertoggle'
 Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'tpope/vim-endwise'
 filetype plugin indent on                  " (Re)enable filetype and indenting
 
 "==============================================================================
@@ -38,19 +39,21 @@ filetype plugin indent on                  " (Re)enable filetype and indenting
 
 set history=50      " Longer command history for q:
 set vb              " No audible bell
-let mapleader= ","  " Remapped from \"
+let mapleader=","  " Remapped from \"
 set laststatus=2    " Always show status bar for powerline
 "set t_Co=16        " Use in case of xterm sans 256 color
 set ignorecase      " Searches are case insenstive by default
 set smartcase       "     unless search contains Uppercase character
 set wildmode=longest,list,full " more natural tab completion
 set wildmenu
+set incsearch
 
 "==============================================================================
 " Key Mappings
 "------------------------------------------------------------------------------
 inoremap jj <Esc>
-map <leader>v :tabedit $MYVIMRC<CR>
+nmap <leader>v :tabedit $MYVIMRC<CR>
+nmap <leader>l :set list!<CR>
 
 "==============================================================================
 " Appearance options
@@ -64,6 +67,10 @@ endif
 set background=light
 colorscheme solarized
 :call togglebg#map("") " Required to call activate function
+set listchars=tab:▸\ ,eol:¬
+highlight NonText guifg=#4a4a59
+highlight SpecialKey guifg=#4a4a59
+
 
 "==============================================================================
 " Tab and indent options
