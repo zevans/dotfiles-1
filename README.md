@@ -27,3 +27,7 @@
 
 # Configure global gitignore
     git config --global core.excludesfile ~/dotfiles/gitignore_global
+
+# Setup OSX tmux copy wrapper
+    cd ~/dotfiles/osx/tmux-MacOSX-pasteboard
+    make reattach-to-user-namespace && cp reattach-to-user-namespace ~/bin

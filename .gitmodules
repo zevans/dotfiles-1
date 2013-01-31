@@ -1,3 +1,6 @@
 [submodule "dotvim/bundle/vundle"]
 	path = dotvim/bundle/vundle
 	url = https://github.com/gmarik/vundle.git
+[submodule "osx/tmux-MacOSX-pasteboard"]
+	path = osx/tmux-MacOSX-pasteboard
+	url = git@github.com:ChrisJohnsen/tmux-MacOSX-pasteboard.git
