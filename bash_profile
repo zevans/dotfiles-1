@@ -5,10 +5,6 @@ source ~/dotfiles/bash/env
 source ~/dotfiles/bash/config
 source ~/dotfiles/bash/aliases
 
-if [ $OSTYPE==darwin11 ]; then
-	alias vim="mvim -v"
-fi
-
 # terminal coloring
 export CLICOLOR=1
 export LSCOLORS=dxfxxxxxbxegedbxbxdxdx

@@ -1,11 +1,24 @@
+alias reload='source ~/dotfiles/bash/aliases'
+alias h=history
+
 alias l='ls'
 alias ll='ls -alh'
-alias reload='source ~/dotfiles/bash/aliases'
-alias ea='mvim -v ~/dotfiles/bash/aliases && reload'
-alias h=history
+
 alias g=git
 alias s='git status'
 alias d='git diff'
 alias a='git add'
 alias c='git commit'
+
+if [ "$OSTYPE" == "darwin11" ]; then
+	alias vim='mvim -v'
+	alias tmux='dotfiles/tmux_wrapper'
+fi
+
+if [ "$OSTYPE" == "linux-gnu" ]; then
+	alias tmux='tmux -2'
+fi
+
 alias ev='vim ~/.vimrc'
+alias ea='vim -v ~/dotfiles/bash/aliases && reload'
+
