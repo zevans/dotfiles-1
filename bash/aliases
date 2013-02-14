@@ -10,9 +10,9 @@ alias d='git diff'
 alias a='git add'
 alias c='git commit'
 
-if [ "$OSTYPE" == "darwin11" ]; then
+if [[ ( $OSTYPE == darwin* ) ]]; then
 	alias vim='mvim -v'
-	alias tmux='dotfiles/tmux_wrapper'
+	alias tmux='~/dotfiles/tmux_wrapper'
 fi
 
 if [ "$OSTYPE" == "linux-gnu" ]; then
