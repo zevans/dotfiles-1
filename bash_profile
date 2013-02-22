@@ -6,6 +6,9 @@ source ~/dotfiles/bash/config
 source ~/dotfiles/bash/aliases
 
 # terminal coloring
+if [ "$COLORTERM" == "gnome-terminal" ]; then
+	export TERM="xterm-256color"
+fi
 export CLICOLOR=1
 export LSCOLORS=dxfxxxxxbxegedbxbxdxdx
 
