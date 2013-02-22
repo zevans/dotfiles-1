@@ -1,3 +1,5 @@
+# vi: set ft=sh :
+
 alias reload='source ~/dotfiles/bash/aliases'
 alias h=history
 

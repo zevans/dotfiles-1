@@ -1,3 +1,5 @@
+# vi: set ft=sh :
+
 source ~/dotfiles/bash_completion.d/git-completion.bash
 source ~/dotfiles/bash_completion.d/git-prompt.sh
 source ~/dotfiles/bash_completion.d/tmux

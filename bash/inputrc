@@ -1,3 +1,5 @@
+# vi: set ft=sh :
+
 set editing-mode vi
 set keymap vi
 
