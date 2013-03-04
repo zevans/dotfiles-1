@@ -31,6 +31,10 @@ Bundle 'puppetlabs/puppet-syntax-vim'
 Bundle 'jeffkreeftmeijer/vim-numbertoggle'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-ragtag'
+
 filetype plugin indent on                  " (Re)enable filetype and indenting
 
 "==============================================================================
@@ -55,6 +59,7 @@ set vb t_vb=
 inoremap jj <Esc>
 nmap <leader>v :tabedit $MYVIMRC<CR>
 nmap <leader>l :set list!<CR>
+nmap <leader>g :Gstatus<CR>
 
 "==============================================================================
 " Appearance options
