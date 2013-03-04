@@ -2,6 +2,7 @@
 
 alias reload='source ~/dotfiles/bash/aliases'
 alias h=history
+alias hgrep='history | grep'
 
 alias l='ls'
 alias ll='ls -alh'
@@ -14,7 +15,7 @@ alias c='git commit'
 
 if [[ ( $OSTYPE == darwin* ) ]]; then
 	alias vim='mvim -v'
-	alias tmux='~/dotfiles/tmux_wrapper'
+	alias tmuxx='~/dotfiles/tmux_wrapper'
 fi
 
 if [ "$OSTYPE" == "linux-gnu" ]; then
@@ -23,4 +24,5 @@ fi
 
 alias ev='vim ~/.vimrc'
 alias ea='vim -v ~/dotfiles/bash/aliases && reload'
+alias eg='vim ~/.gitconfig'
 

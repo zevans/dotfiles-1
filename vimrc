@@ -60,6 +60,10 @@ inoremap jj <Esc>
 nmap <leader>v :tabedit $MYVIMRC<CR>
 nmap <leader>l :set list!<CR>
 nmap <leader>g :Gstatus<CR>
+imap <C-l> <Space>=><Space>
+nnoremap <Space> :
+noremap <leader>y "*y
+noremap <leader>yy "*Y
 
 "==============================================================================
 " Appearance options
