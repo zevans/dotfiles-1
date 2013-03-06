@@ -1,0 +1,19 @@
+[core]
+	editor = /usr/bin/vim
+	excludesfile = ~/dotfiles/gitignore_global
+[color]
+	diff = auto
+[rerere]
+	enabled = true
+[alias]
+	pl   = pull --ff-only
+	lg   = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	a    = add
+	s    = status
+	d    = diff
+	dc   = diff --cached
+	ci   = commit
+	co   = checkout
+	br   = branch
+	undo = reset HEAD@{1}
+

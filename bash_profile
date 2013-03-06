@@ -6,6 +6,7 @@ source ~/dotfiles/bash_completion.d/tmux
 source ~/dotfiles/bash/env
 source ~/dotfiles/bash/config
 source ~/dotfiles/bash/aliases
+source ~/dotfiles/bash/git_identity
 
 # terminal coloring
 if [ "$COLORTERM" == "gnome-terminal" ]; then
