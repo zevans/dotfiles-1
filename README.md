@@ -13,6 +13,7 @@
     ln -sf ~/ dotfiles/tmux.conf    ~/.tmux.conf
     ln -sf ~/dotfiles/ackrc         ~/.ackrc
     ln -sf ~/dotfiles/gitconfig     ~/.gitconfig
+    ln -sf ~/dotfiles/inputrc       ~/.inputrc
 
 # Inside of vim, run
     :BundleInstall
