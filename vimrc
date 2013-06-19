@@ -41,10 +41,12 @@ filetype plugin indent on                  " (Re)enable filetype and indenting
 " Basic options
 "------------------------------------------------------------------------------
 
+set encoding=utf-8
 set history=50      " Longer command history for q:
 set vb              " No audible bell
 let mapleader=","  " Remapped from \"
 set laststatus=2    " Always show status bar for powerline
+let g:Powerline_symbols = 'fancy'
 set t_Co=16        " Use in case of xterm sans 256 color
 set ignorecase      " Searches are case insenstive by default
 set smartcase       "     unless search contains Uppercase character
