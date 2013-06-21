@@ -15,6 +15,7 @@ alias c='git commit'
 
 if [[ ( $OSTYPE == darwin* ) ]]; then
 	alias vim='mvim -v'
+	alias tmux='~/dotfiles/tmux_wrapper'
 fi
 
 alias ev='vim ~/.vimrc'
