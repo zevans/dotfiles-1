@@ -7,7 +7,9 @@ source ~/dotfiles/bash_completion.d/tmux
 source ~/dotfiles/bash/env
 source ~/dotfiles/bash/config
 source ~/dotfiles/bash/aliases
-source ~/dotfiles/bash/git_identity
+if [ -z "$GIT_AUTHOR_NAME" ]; then
+  source ~/dotfiles/bash/git_identity
+fi
 
 # terminal coloring
 if [ "$COLORTERM" == "gnome-terminal" ]; then
