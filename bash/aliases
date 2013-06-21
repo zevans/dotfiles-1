@@ -13,8 +13,6 @@ alias d='git diff'
 alias a='git add'
 alias c='git commit'
 
-alias tmux='~/dotfiles/tmux_wrapper'
-
 if [[ ( $OSTYPE == darwin* ) ]]; then
 	alias vim='mvim -v'
 fi
