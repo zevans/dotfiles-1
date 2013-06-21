@@ -1,5 +1,6 @@
 # vi: set ft=sh :
 
+source ~/.bashrc #for integration with work puppet bashrc
 source ~/dotfiles/bash_completion.d/git-completion.bash
 source ~/dotfiles/bash_completion.d/git-prompt.sh
 source ~/dotfiles/bash_completion.d/tmux
@@ -50,7 +51,11 @@ YELLOW="\[\033[0;33m\]"
 GREEN="\[\033[0;32m\]"
 RESET="\[\033[0;0;m\]"
 
-PS1="$GREEN\w$RESET\$(__git_ps1 \" $RED(%s)$RESET\")\$ "
+if [ -n "$SSH_CONNECTION" ]; then
+  PS1="$GREEN\w$RESET\$(__git_ps1 \" $RED(%s)$RESET\")[\h]\$ "
+else
+  PS1="$GREEN\w$RESET\$(__git_ps1 \" $RED(%s)$RESET\")\$ "
+fi
 
 unset RED YELLOW GREEN RESET
 
