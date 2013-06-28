@@ -8,7 +8,7 @@ if [[ ( $OSTYPE == darwin* ) && ( -x $(which reattach-to-user-namespace 2>/dev/n
      # https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
      tweaked_config=$(cat $HOME/.tmux.conf <(echo 'set-option -g default-command "reattach-to-user-namespace -l $SHELL"'))
 
-     tmux -f <(echo "$tweaked_config")
+     tmux -f <(echo "$tweaked_config") "$@"
 else
-     tmux
+     tmux "$@"
 fi
