@@ -34,6 +34,8 @@ Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-ragtag'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'vim-scripts/ctags.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 
 filetype plugin indent on                  " (Re)enable filetype and indenting
@@ -67,6 +69,7 @@ imap <C-l> <Space>=><Space>
 nnoremap <Space> :
 noremap <leader>y "*y
 noremap <leader>yy "*Y
+map <Leader>ct :!ctags -R .<CR>
 
 "==============================================================================
 " Appearance options
