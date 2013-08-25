@@ -15,6 +15,8 @@
     ln -sf ~/dotfiles/gitconfig    ~/.gitconfig
     ln -sf ~/dotfiles/bash/inputrc ~/.inputrc
     ln -sf ~/dotfiles/gemrc        ~/.gemrc
+    ln -sf ~/dotfiles/minttyrc     ~/.minttyrc
+    ln -sf ~/dotfiles/screenrc     ~/.screenrc
 
 # Inside of vim, run
     :BundleInstall

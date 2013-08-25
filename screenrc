@@ -1,0 +1,3 @@
+defshell -/bin/bash
+hardstatus alwayslastline "%w"
+startup_message off
