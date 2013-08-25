@@ -54,6 +54,7 @@ set t_Co=16        " Use in case of xterm sans 256 color
 set ignorecase      " Searches are case insenstive by default
 set smartcase       "     unless search contains Uppercase character
 set wildmode=longest,list,full " more natural tab completion
+set backspace=indent,eol,start
 set wildmenu
 set incsearch
 set vb t_vb=
@@ -61,14 +62,13 @@ set vb t_vb=
 "==============================================================================
 " Key Mappings
 "------------------------------------------------------------------------------
-inoremap jj <Esc>
 nmap <leader>v :tabedit $MYVIMRC<CR>
 nmap <leader>l :set list!<CR>
 nmap <leader>g :Gstatus<CR>
 imap <C-l> <Space>=><Space>
-nnoremap <Space> :
 noremap <leader>y "*y
 noremap <leader>yy "*Y
+noremap <leader>p "*p
 map <Leader>ct :!ctags -R .<CR>
 
 "==============================================================================
