@@ -18,6 +18,13 @@ if [[ ( $OSTYPE == darwin* ) ]]; then
 	alias tmux='~/dotfiles/tmux_wrapper'
 fi
 
+if [[ ( $OSTYPE == cygwin ) ]]; then
+	alias vim='gvim -v'
+	alias tmux='screen'
+	alias 'apt-get'='apt-cyg -u'
+	alias 'apt-cache'='apt-cyg -u'
+fi
+
 alias ev='vim ~/.vimrc'
 alias ea='vim -v ~/dotfiles/bash/aliases && reload'
 alias eg='vim ~/.gitconfig'
