@@ -1,3 +1,7 @@
 # vi: set ft=sh :
 
 export PATH=$PATH:~/bin
+
+if [[ ( $OSTYPE == cygwin ) ]]; then
+  export DISPLAY=:0.0
+fi

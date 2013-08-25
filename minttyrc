@@ -26,3 +26,5 @@ CursorType=block
 CursorBlinks=no
 Scrollbar=none
 BackspaceSendsBS=no
+Font=Consolas for Powerline FixedD
+FontHeight=11
