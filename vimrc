@@ -123,12 +123,12 @@ set showmode
 "==============================================================================
 " If none found file types
 "------------------------------------------------------------------------------
-if exists("did_load_filetypes")
-  finish
-endif
-augroup filetypedetect
-  "au! BufRead,BufNewFile *.ext  setfiletype type
-augroup END
+"if exists("did_load_filetypes")
+  "finish
+"endif
+"augroup filetypedetect
+  ""au! BufRead,BufNewFile *.ext  setfiletype type
+"augroup END
 
 "==============================================================================
 " Debian/Ubuntu options
