@@ -37,6 +37,7 @@ Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-scripts/ctags.vim'
 Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'majutsushi/tagbar'
 
 filetype plugin indent on                  " (Re)enable filetype and indenting
 
@@ -70,6 +71,7 @@ noremap <leader>y "*y
 noremap <leader>yy "*Y
 noremap <leader>p "*p
 map <Leader>ct :!ctags -R .<CR>
+map <Leader>h :TagbarToggle<CR>
 
 "==============================================================================
 " Appearance options
