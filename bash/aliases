@@ -28,3 +28,5 @@ fi
 alias ev='vim ~/.vimrc'
 alias ea='vim -v ~/dotfiles/bash/aliases && reload'
 alias eg='vim ~/.gitconfig'
+
+alias ct='rm -rf tags'
