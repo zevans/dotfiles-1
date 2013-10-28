@@ -1,6 +1,6 @@
 # vi: set ft=sh :
 
-source ~/.bashrc #for integration with work puppet bashrc
+#source ~/.bashrc #for integration with work puppet bashrc
 source ~/dotfiles/bash_completion.d/git-completion.bash
 source ~/dotfiles/bash_completion.d/git-prompt.sh
 source ~/dotfiles/bash_completion.d/tmux
@@ -14,6 +14,9 @@ fi
 # terminal coloring
 if [ "$COLORTERM" == "gnome-terminal" ]; then
 	export TERM="xterm-256color"
+fi
+if [ "$GDMSESSION" == "pantheon" ]; then
+  export TERM="xterm-256color"
 fi
 export CLICOLOR=1
 export LSCOLORS=dxfxxxxxbxegedbxbxdxdx

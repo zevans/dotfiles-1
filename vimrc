@@ -67,9 +67,9 @@ nmap <leader>v :tabedit $MYVIMRC<CR>
 nmap <leader>l :set list!<CR>
 nmap <leader>g :Gstatus<CR>
 imap <C-l> <Space>=><Space>
-noremap <leader>y "*y
-noremap <leader>yy "*Y
-noremap <leader>p "*p
+noremap <leader>y "+y
+noremap <leader>yy "+Y
+noremap <leader>p "+p
 map <Leader>ct :!ctags -R .<CR>
 map <Leader>h :TagbarToggle<CR>
 
@@ -82,7 +82,7 @@ set number             " Turn this off for copy with 'set nonumber'
 if exists('+colorcolumn') " Marks the 80th character column
   set colorcolumn=80
 endif
-set background=light
+set background=dark
 colorscheme solarized
 :call togglebg#map("") " Required to call activate function
 set listchars=tab:▸\ ,eol:¬
