@@ -38,6 +38,7 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-scripts/ctags.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'majutsushi/tagbar'
+Bundle 'thoughtbot/vim-rspec'
 
 filetype plugin indent on                  " (Re)enable filetype and indenting
 
@@ -72,6 +73,12 @@ noremap <leader>yy "*Y
 noremap <leader>p "*p
 map <Leader>ct :!ctags -R .<CR>
 map <Leader>h :TagbarToggle<CR>
+
+" Rspec.vim mappings
+map <Leader>s :call RunCurrentSpecFile()<CR>
+map <Leader>n :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
 
 "==============================================================================
 " Appearance options
