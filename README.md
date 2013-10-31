@@ -1,17 +1,36 @@
+# Features
+  - Support for OS X, Linux, and Cygwin eases cross platform work
+  - Copy/paste integration inside vim/tmux, even host to guest VM using X11
+  - Simple bash prompt with host display over SSH and git integration
+  - Git optimizations for settings and aliases
+  - Solarized colorscheme optimizations for tmux, gnome-terminal, and vim
+  - Unified tmux/vim pane and split navigation with Ctrl-{h,j,k,l}
+  - Vim
+    - Copy/paste directly from vim to system clipboard (even inside a VM inside tmux)
+    - Command-T for fuzzy file opening
+    - Syntastic error checking support
+    - Powerline with fancy symbols
+    - Exuberant ctags navigation plus Tagbar
+    - Whitespace detection and highlighting
+    - Other sane defaults for searching, surround, and tpope plugins
+
 # Tested OSes
-    - OS X
-      - Lion
-      - Mountain Lion
-    - Ubuntu
-      - Lucid (10.04)
-      - Precise (12.04)
-    - Cygwin (no documentation)
-    - Elementary OS Luna (see branch)
+  - OS X
+    - Lion
+    - Mountain Lion
+  - Ubuntu
+    - Lucid (10.04)
+    - Precise (12.04)
+  - Cygwin (no documentation)
+  - Elementary OS Luna (see branch)
 
 # Prerequisites
-  - Build Tools for Platform
+  - Build Tools for Platform (build essentials, etc.)
   - Homebrew (for OSX) with clean `brew doctor`
   - [ RVM ]( http://rvm.io ) with successful ruby compile
+  - Configure Solarized for [ gnome-terminal ]( https://github.com/sigurdga/gnome-terminal-colors-solarized ) or [ iTerm2 ]( https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized ).  (or remove `altercation/vim-colors-solarized` from `vimrc`
+  - Patched (powerline font)[https://github.com/Lokaltog/powerline-fonts] set in your terminal (or change `Powerline_symbols` in `vimrc` to `compatible`
+  - Terminal set to login shell
 
 # Clone the repository into home directory and initialize
     git clone https://github.com/josephlogik/dotfiles
@@ -54,14 +73,19 @@
     make
     sudo make install
     ```
+  - Change the `*` register to `+` if vim copy/paste from X11 clipboard isn't working with `,y`
 
 # Install and configure for OSX
+  - Install MacVim and mvim wrapper
   - Install packages
 
     ```
     brew install ack tmux ctags xclip reattach-to-user-namespace
     ```
   - Install Command Line tools for OSX (developer.apple.com)
+  - Install XQuartz for Mountain Lion
+  - Add XQuartz/X11 to "Login Items" for your account
+  - In XQuartz/X11 preferences, check all boxes under "Pasteboard" to enable copy/paste sync
   - Fix Command Line tools
 
     ```
@@ -76,6 +100,13 @@
 # Configure git identity
     cp ~/dotfiles/bash/git_identity.example ~/dotfiles/bash/git_identity
     vim ~/dotfiles/bash/git_identity
+
+  Note: this sets `GIT_` environment variables that can be accepted over SSH by
+  a virtual machine to avoid setting this multiple places if your sshd config
+  on the VM allows these through `AcceptEnv`
+
+    # Allow client to pass locale and git environment variables
+    AcceptEnv LANG LC_* GIT_*
 
 # Inside of vim, run
     :BundleInstall
