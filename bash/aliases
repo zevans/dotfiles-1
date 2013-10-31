@@ -8,10 +8,6 @@ alias l='ls'
 alias ll='ls -alh'
 
 alias g=git
-alias s='git status'
-alias d='git diff'
-alias a='git add'
-alias c='git commit'
 
 alias go='foreman start'
 
