@@ -1,6 +1,7 @@
 # vi: set ft=sh :
 
 export PATH=$PATH:~/bin
+export EDITOR=vim
 
 if [[ ( $OSTYPE == cygwin ) ]]; then
   export DISPLAY=:0.0
