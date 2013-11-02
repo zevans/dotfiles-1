@@ -1,4 +1,9 @@
 defshell -/bin/bash
 hardstatus alwayslastline "%w"
+defscrollback 10000
 startup_message off
 vbell off
+
+# Optimize copy/paste in screen for usage within Cygwin; use tmux on Linux/OSX instead
+bind "^c" eval writebuf "exec sh -c 'cat /tmp/screen-exchange | unix2dos > /dev/clipboard'"
+bind "^v" eval "exec sh -c 'cat /dev/clipboard | dos2unix > /tmp/screen-exchange; screen -X readbuf'"
