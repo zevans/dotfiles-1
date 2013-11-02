@@ -13,6 +13,7 @@
     - Exuberant ctags navigation plus Tagbar
     - Whitespace detection and highlighting
     - Other sane defaults for searching, surround, and tpope plugins
+    - Support for .vimrc.local for colorscheme changes, etc.
 
 # Tested OSes
   - OS X

@@ -158,6 +158,9 @@ autocmd BufReadPost *
     \ endif
 
 "==============================================================================
-"
+" Load .vimrc.local if it exists (for easy colorscheme changes, etc.)
 "------------------------------------------------------------------------------
+if filereadable(glob("~/.vimrc.local"))
+    source ~/.vimrc.local
+endif
 
