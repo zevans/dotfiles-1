@@ -97,6 +97,14 @@
     sudo chmod 755 /usr/bin/xcrun
     ```
 
+# Install and configure for Windows/Cygwin
+  - Install XWin server
+  - For copy/paste integration through vim, with the same config as Linux/O X, add a shortcut to the "Startup" group with the target
+
+    ```
+    C:\cygwin\\bin\run.exe -p /usr/X11R6/bin XWin -multiwindow -clipboard -silent-dup-error
+    ```
+
 # Configure git identity
     cp ~/dotfiles/bash/git_identity.example ~/dotfiles/bash/git_identity
     vim ~/dotfiles/bash/git_identity
