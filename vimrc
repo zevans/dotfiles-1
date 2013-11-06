@@ -68,8 +68,8 @@ if exists('+colorcolumn') " Marks the 80th character column
   set colorcolumn=80
 endif
 set background=light
-colorscheme solarized
-:call togglebg#map("") " Required to call activate function
+silent! colorscheme solarized
+silent! call togglebg#map("")
 set listchars=tab:▸\ ,eol:¬
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
