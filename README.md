@@ -42,18 +42,19 @@
 # Setup links from home directory as appropriate
 
     #NOTE: delete .vim or other directories first!
-    ln -sf ~/dotfiles/bash_profile ~/.bash_profile
-    ln -sf ~/dotfiles/bashrc       ~/.bashrc
-    ln -sf ~/dotfiles/vimrc        ~/.vimrc
-    ln -sf ~/dotfiles/gvimrc       ~/.gvimrc
-    ln -sf ~/dotfiles/dotvim/      ~/.vim
-    ln -sf ~/dotfiles/tmux.conf    ~/.tmux.conf
-    ln -sf ~/dotfiles/ackrc        ~/.ackrc
-    ln -sf ~/dotfiles/gitconfig    ~/.gitconfig
-    ln -sf ~/dotfiles/bash/inputrc ~/.inputrc
-    ln -sf ~/dotfiles/gemrc        ~/.gemrc
-    ln -sf ~/dotfiles/minttyrc     ~/.minttyrc
-    ln -sf ~/dotfiles/screenrc     ~/.screenrc
+    ln -sf ~/dotfiles/bash_profile  ~/.bash_profile
+    ln -sf ~/dotfiles/bashrc        ~/.bashrc
+    ln -sf ~/dotfiles/vimrc         ~/.vimrc
+    ln -sf ~/dotfiles/vimrc.bundles ~/.vimrc.bundles
+    ln -sf ~/dotfiles/gvimrc        ~/.gvimrc
+    ln -sf ~/dotfiles/dotvim/       ~/.vim
+    ln -sf ~/dotfiles/tmux.conf     ~/.tmux.conf
+    ln -sf ~/dotfiles/ackrc         ~/.ackrc
+    ln -sf ~/dotfiles/gitconfig     ~/.gitconfig
+    ln -sf ~/dotfiles/bash/inputrc  ~/.inputrc
+    ln -sf ~/dotfiles/gemrc         ~/.gemrc
+    ln -sf ~/dotfiles/minttyrc      ~/.minttyrc
+    ln -sf ~/dotfiles/screenrc      ~/.screenrc
 
 # Install and configure for Linux
   - Install packages

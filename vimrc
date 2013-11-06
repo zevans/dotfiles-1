@@ -16,31 +16,9 @@ set nocompatible
 " Refresh with :BundleInstall
 "------------------------------------------------------------------------------
 
-filetype on                                " Enable it first for git exit code
-filetype off                               " Disable for Vundle load
-set rtp+=~/.vim/bundle/vundle/             " Add Vundle subdir to run time path
-call vundle#rc()                           " Enable vundle
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'git://git.wincent.com/command-t.git'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'mileszs/ack.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'scrooloose/syntastic'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'puppetlabs/puppet-syntax-vim'
-Bundle 'jeffkreeftmeijer/vim-numbertoggle'
-Bundle 'bronson/vim-trailing-whitespace'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-ragtag'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'vim-scripts/ctags.vim'
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'majutsushi/tagbar'
-Bundle 'thoughtbot/vim-rspec'
-
-filetype plugin indent on                  " (Re)enable filetype and indenting
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
+endif
 
 "==============================================================================
 " Basic options

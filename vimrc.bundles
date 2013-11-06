@@ -1,0 +1,34 @@
+" Enable filetype for vim exit code for git commits
+filetype on
+
+" Disable for vundle load
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Bundles are GitHub repositories
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'git://git.wincent.com/command-t.git'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'mileszs/ack.vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'puppetlabs/puppet-syntax-vim'
+Bundle 'jeffkreeftmeijer/vim-numbertoggle'
+Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-ragtag'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'vim-scripts/ctags.vim'
+Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'majutsushi/tagbar'
+Bundle 'thoughtbot/vim-rspec'
+
+if filereadable(expand("~/.vimrc.bundles.local"))
+  source ~/.vimrc.bundles.local
+endif
+
+filetype plugin indent on                  " (Re)enable filetype and indenting
