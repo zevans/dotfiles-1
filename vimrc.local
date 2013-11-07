@@ -1,0 +1,7 @@
+" This is a git ignored file
+" Set colorschemes and local options here
+
+" Solarized
+set background=dark
+silent! colorscheme solarized
+silent! call togglebg#map("")

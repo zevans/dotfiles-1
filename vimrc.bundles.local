@@ -1,0 +1,5 @@
+" This is a git ignored file
+" Set local bundles here
+
+" Solarized
+Bundle 'altercation/vim-colors-solarized'

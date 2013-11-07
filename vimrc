@@ -67,9 +67,6 @@ set number             " Turn this off for copy with 'set nonumber'
 if exists('+colorcolumn') " Marks the 80th character column
   set colorcolumn=80
 endif
-set background=light
-silent! colorscheme solarized
-silent! call togglebg#map("")
 set listchars=tab:▸\ ,eol:¬
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59

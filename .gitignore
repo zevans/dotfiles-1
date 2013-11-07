@@ -1,2 +1,4 @@
 bundle/
 bash/git_identity
+vimrc.local
+vimrc.bundles.local
