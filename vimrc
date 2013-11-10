@@ -52,10 +52,10 @@ map <Leader>ct :!ctags -R .<CR>
 map <Leader>h :TagbarToggle<CR>
 
 " Rspec.vim mappings
-map <Leader>s :call RunCurrentSpecFile()<CR>
-map <Leader>n :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+map <Leader>S :call RunCurrentSpecFile()<CR>
+map <Leader>N :call RunNearestSpec()<CR>
+map <Leader>L :call RunLastSpec()<CR>
+map <Leader>A :call RunAllSpecs()<CR>
 
 "==============================================================================
 " Appearance options
