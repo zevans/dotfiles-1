@@ -2,6 +2,8 @@
 " Set colorschemes and local options here
 
 " Solarized
+set t_Co=16
 set background=dark
 silent! colorscheme solarized
 silent! call togglebg#map("")
+let g:Powerline_symbols = 'fancy'
