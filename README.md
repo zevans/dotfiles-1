@@ -62,7 +62,7 @@
   - Install packages
 
     ```
-    sudo apt-get install ack-grep exuberant-ctags xclip vim-gtk ruby
+    sudo apt-get install ack-grep exuberant-ctags xclip vim-gtk ruby ruby1.9.1-dev
     ```
   - Change .vimrc ack command by uncommenting the ack-grep line
   - Install tmux 1.8
