@@ -12,7 +12,8 @@ if [ -z "$GIT_AUTHOR_NAME" ]; then
 fi
 
 # terminal coloring
-if [ "$COLORTERM" == "gnome-terminal" ]; then
+if [ "$COLORTERM" == "gnome-terminal" ] ||
+   [ "$COLORTERM" == "xfce4-terminal" ]; then
 	export TERM="xterm-256color"
 fi
 export CLICOLOR=1
