@@ -58,6 +58,11 @@
     ln -sf ~/dotfiles/minttyrc            ~/.minttyrc
     ln -sf ~/dotfiles/screenrc            ~/.screenrc
 
+# Ignore local modifications to .local files
+    cd dotfiles
+    git update-index --assume-unchanged vimrc.local
+    git update-index --assume-unchanged vimrc.bundles.local
+
 # Install and configure for Linux
   - Install packages
 
