@@ -30,6 +30,7 @@ set vb              " No audible bell
 let mapleader=","  " Remapped from \"
 set laststatus=2    " Always show status bar for powerline
 let g:Powerline_symbols = 'compatible'
+let g:signify_vcs_list = [ 'git' ]
 set ignorecase      " Searches are case insenstive by default
 set smartcase       "     unless search contains Uppercase character
 set wildmode=longest,list,full " more natural tab completion
