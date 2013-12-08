@@ -22,6 +22,7 @@
   - Ubuntu
     - Lucid (10.04)
     - Precise (12.04)
+    - Saucy (13.10)
   - Cygwin (no documentation)
   - Elementary OS Luna (see branch)
 
