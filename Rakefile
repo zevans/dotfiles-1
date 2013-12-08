@@ -1,6 +1,6 @@
 task :default => [:setup]
 
-task :setup => [:system, :tmux, :submodules, :links, :git]
+task :setup => [:system, :tmux, :submodules, :links, :git, :vim]
 
 
 task :system do
@@ -44,6 +44,12 @@ task :tmux do
                "apt-cyg install screen"
              end
   system command
+end
+
+task :vim do
+  puts "Installing vim bundles..."
+  system "vim +BundleInstall +qall"
+  puts "...done!"
 end
 
 task :submodules do
