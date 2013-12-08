@@ -7,3 +7,4 @@ rvm install ruby
 rvm use ruby
 gem install rake
 rake setup
+echo 'Close existing terminals or `source ~/.bash_profile`'
