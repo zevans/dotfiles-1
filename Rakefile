@@ -96,5 +96,5 @@ def os_type
 end
 
 def linux_packages
-  %w{ack-grep exuberant-ctags xclip vim-gtk ruby ruby1.9.1-dev}.join(" ")
+  %w{ack-grep exuberant-ctags xclip vim-gtk ruby ruby1.9.1-dev ruby 1.8-dev}.join(" ")
 end
