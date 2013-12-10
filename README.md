@@ -34,43 +34,12 @@
   - Patched (powerline font)[https://github.com/Lokaltog/powerline-fonts] set in your terminal (or change `Powerline_symbols` in `vimrc` to `compatible`). Inconsolata-dz/Source Code Pro patches recommended for Linux/OS X, but Consolas.ttf patched works best for Cygwin/mintty
   - Terminal set to login shell (if not possible, see patches on Elementary OS/Pantheon branch that switch sourcing order from `bash_profile` to `bashrc`; this is not the default due to integration with a Puppet configuration that overwrites .bashrc)
 
-# Clone the repository into home directory and initialize
+# Setup
     git clone https://github.com/josephlogik/dotfiles
     cd dotfiles/
-    git submodule init
-    git submodule update
-
-# Setup links from home directory as appropriate
-
     #NOTE: delete .vim or other directories first!
-    ln -sf ~/dotfiles/bash_profile        ~/.bash_profile
-    ln -sf ~/dotfiles/bashrc              ~/.bashrc
-    ln -sf ~/dotfiles/vimrc               ~/.vimrc
-    ln -sf ~/dotfiles/vimrc.local         ~/.vimrc.local
-    ln -sf ~/dotfiles/vimrc.bundles       ~/.vimrc.bundles
-    ln -sf ~/dotfiles/vimrc.bundles.local ~/.vimrc.bundles.local
-    ln -sf ~/dotfiles/gvimrc              ~/.gvimrc
-    ln -sf ~/dotfiles/dotvim/             ~/.vim
-    ln -sf ~/dotfiles/tmux.conf           ~/.tmux.conf
-    ln -sf ~/dotfiles/ackrc               ~/.ackrc
-    ln -sf ~/dotfiles/gitconfig           ~/.gitconfig
-    ln -sf ~/dotfiles/bash/inputrc        ~/.inputrc
-    ln -sf ~/dotfiles/gemrc               ~/.gemrc
-    ln -sf ~/dotfiles/minttyrc            ~/.minttyrc
-    ln -sf ~/dotfiles/screenrc            ~/.screenrc
+    ./setup.sh
 
-# Ignore local modifications to .local files
-    cd dotfiles
-    git update-index --assume-unchanged vimrc.local
-    git update-index --assume-unchanged vimrc.bundles.local
-
-# Install and configure for Linux
-  - Install packages
-
-    ```
-    sudo apt-get install ack-grep exuberant-ctags xclip vim-gtk ruby ruby1.9.1-dev
-    ```
-  - Change .vimrc ack command by uncommenting the ack-grep line
   - Install tmux 1.8
 
     ```
@@ -83,7 +52,6 @@
     make
     sudo make install
     ```
-  - Change the `*` register to `+` if vim copy/paste from X11 clipboard isn't working with `,y`
 
 # Install and configure for OSX
   - Install MacVim and mvim wrapper
@@ -125,13 +93,3 @@
 
     # Allow client to pass locale and git environment variables
     AcceptEnv LANG LC_* GIT_*
-
-# Inside of vim, run
-    :BundleInstall
-
-# Build Command-T extension
-    cd ~/dotfiles/dotvim/bundle/command-t/ruby/command-t/
-    rvm use system
-    ruby extconf.rb
-    make
-
