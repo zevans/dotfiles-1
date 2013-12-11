@@ -146,6 +146,26 @@ git_ignore_local_mods () {
 }
 git_ignore_local_mods
 
+build_commandt () {
+  echo 'Building Command-T...'
+  if [ -e dotvim/bundle/Command-T/ruby/command-t/ ]; then
+	cd dotvim/bundle/Command-T/ruby/command-t/
+  elif [ -e dotvim/bundle/command-t/ruby/command-t/ ]; then
+	cd dotvim/bundle/command-t/ruby/command-t
+  else
+	echo "Cannot find Command-T bundle... exiting!"
+	return
+  fi
+  [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+  rvm use system
+  ruby extconf.rb
+  make
+  echo "Build complete!"
+}
+build_commandt
+
+echo 'Close existing terminals or `source ~/.bash_profile`'
+
 #command -v curl >/dev/null 2>&1 || { echo "Installing curl (using sudo):"; sudo apt-get install curl; }
 #command -v rvm >/dev/null 2>&1 || { echo "Installing rvm";
                                     #curl -sSL https://get.rvm.io | bash -s stable;
@@ -156,14 +176,4 @@ git_ignore_local_mods
 
 #gem install rake
 #rake setup
-
-#echo 'Building Command-T'
-#cd dotvim/bundle/Command-T/ruby/command-t/
-#[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-#rvm use system
-#ruby extconf.rb
-#make
-#echo "...done!"
-
-#echo 'Close existing terminals or `source ~/.bash_profile`'
 
