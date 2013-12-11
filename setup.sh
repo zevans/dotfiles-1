@@ -43,6 +43,45 @@ linux_setup () {
 
 }
 
+osx_check_pkg () {
+  if [ -z "$1" ]; then return "$E_ARGUMENT"; fi
+  brew list "$1" > /dev/null 2>&1
+}
+
+osx_install_pkg () {
+  if [ -z "$1" ]; then return "$E_ARGUMENT"; fi
+  if osx_check_pkg "$1"; then
+	echo "$1 already installed... skipping"
+  else
+	brew install "$1"
+  fi
+}
+
+osx_setup () {
+
+  echo "Detected OS X..."
+  if command -v brew >/dev/null 2>&1; then
+	echo "Homebrew detected... skipping"
+  else
+	echo "Installing Homebrew..."
+	ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
+	echo "Homebrew install complete!"
+  fi
+
+  if brew doctor | grep -q "ready to brew"; then
+	echo "Homebrew configuration looks good!"
+  else
+	echo "WARNING!!! Correct any errors/warnings from 'brew doctor'"
+  fi
+
+  osx_install_pkg ack
+  osx_install_pkg tmux
+  osx_install_pkg ctags
+  osx_install_pkg xclip
+  osx_install_pkg reattach-to-user-namespace
+
+}
+
 setup () {
   echo "Starting $OSTYPE setup..."
   case "$OSTYPE" in
