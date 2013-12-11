@@ -128,6 +128,29 @@ dotfile_links () {
 
 dotfile_links
 
+git_submodules () {
+  echo "Setting up git submodules..."
+  git submodule init
+  git submodule update
+  echo "Submodule initialization complete!"
+}
+git_submodules
+
+vim_bundles () {
+  echo "Setting up vim bundles..."
+  vim +BundleInstall +qall
+  echo "Vim bundle install complete!"
+}
+vim_bundles
+
+git_ignore_local_mods () {
+  echo "Ignoring future .local modifications..."
+  git update-index --assume-unchanged vimrc.local
+  git update-index --assume-unchanged vimrc.bundles.local
+  echo "Local modification ignore complete!"
+}
+git_ignore_local_mods
+
 #command -v curl >/dev/null 2>&1 || { echo "Installing curl (using sudo):"; sudo apt-get install curl; }
 #command -v rvm >/dev/null 2>&1 || { echo "Installing rvm";
                                     #curl -sSL https://get.rvm.io | bash -s stable;
