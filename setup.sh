@@ -12,24 +12,19 @@ linux_install_pkg () {
   if linux_check_pkg "$1"; then
 	echo "$1 already installed... skipping"
   else
-	sudo apt-get install "$1"
+	sudo apt-get install "$1" -y
   fi
 }
 
 linux_setup () {
 
   # Return unless specific version is supported
-  if [[ -e /etc/os-release ]]; then
-	source /etc/os-release
-	case "$VERSION_ID" in
-	  13.10 ) echo "Detected Ubuntu 13.10..." ;;
-	  12.04 ) echo "Detected Ubuntu 12.04..." ;;
-	  10.04 ) echo "Detected Ubuntu 10.04..." ;;
-	  *     ) echo "Unsupported Linux; skipping setup"; return ;;
-	esac
+  if cat /etc/lsb-release | grep -q -e '10.04' -e '12.04' -e '13.10'; then
+    echo "Detected supported Ubuntu..."
   else
 	echo "Unsupported Linux; skipping setup"; return
   fi
+
 
   echo -e "\nStarting package installation (may require sudo password)"
   linux_install_pkg "ack-grep"
