@@ -1,5 +1,5 @@
 [push]
-	default = simple
+	default = upstream
 [core]
 	editor = /usr/bin/vim
 	excludesfile = ~/dotfiles/gitignore_global
