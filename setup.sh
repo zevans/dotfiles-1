@@ -115,6 +115,10 @@ linux_setup () {
 	echo "let g:ackprg=\"ack-grep -H --nocolor --nogroup --column\"" >> vimrc.local
 	echo "Ack binary setup for vim complete!"
   fi
+
+  if [ -e $HOME/.profile ]; then
+	mv $HOME/.profile $HOME/.profile-disabled_by_dotfiles
+  fi
 }
 
 osx_check_pkg () {
