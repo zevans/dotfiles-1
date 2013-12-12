@@ -2,6 +2,19 @@
 
 E_ARGUMENT=11 # change later?
 
+safe_link () {
+  if [ -z "$1" ]; then return "$E_ARGUMENT"; fi
+  if [ -z "$2" ]; then target=$1; else target=$2; fi
+  # If not a symbolic link or directory, backup first
+  if [[ ! -L "$HOME/.$1" && ! -d "$HOME/.$1"  && -e $HOME/.$1 ]]; then
+	echo "Making backup of $HOME/.$1 at $HOME/.${1}.dotfile_backup"
+	mv "$HOME/.$1" "$HOME/.${1}.dotfile_backup"
+  fi
+  echo "linking $1 to $target"
+  ln -sfn "$HOME/dotfiles/$1" "$HOME/.$target"
+}
+
+
 linux_check_pkg () {
   if [ -z "$1" ]; then return "$E_ARGUMENT"; fi
   dpkg -s "$1" 2>&1 | grep -q "install ok installed"
@@ -80,12 +93,15 @@ linux_setup () {
   if cat /etc/lsb-release | grep -q -e '10.04'; then
     echo "Detected Ubuntu 10.04 Lucid..."
 	linux_version="lucid"
+	safe_link "gitconfig-compat" "gitconfig"
   elif cat /etc/lsb-release | grep -q -e '12.04'; then
     echo "Detected Ubuntu 12.04 Precise..."
 	linux_version="precise"
+	safe_link "gitconfig"
   elif cat /etc/lsb-release | grep -q -e '13.10'; then
     echo "Detected Ubuntu 13.10 Saucy..."
 	linux_version="saucy"
+  safe_link "gitconfig"
   else
 	echo "Unsupported Linux; skipping setup"; return
   fi
@@ -158,6 +174,7 @@ osx_setup () {
   osx_install_pkg xclip
   osx_install_pkg reattach-to-user-namespace
 
+  safe_link "gitconfig"
 }
 
 cygwin_setup () {
@@ -175,18 +192,6 @@ setup () {
 }
 setup
 
-safe_link () {
-  if [ -z "$1" ]; then return "$E_ARGUMENT"; fi
-  if [ -z "$2" ]; then target=$1; else target=$2; fi
-  # If not a symbolic link or directory, backup first
-  if [[ ! -L "$HOME/.$1" && ! -d "$HOME/.$1"  && -e $HOME/.$1 ]]; then
-	echo "Making backup of $HOME/.$1 at $HOME/.${1}.dotfile_backup"
-	mv "$HOME/.$1" "$HOME/.${1}.dotfile_backup"
-  fi
-  echo "linking $1 to $target"
-  ln -sfn "$HOME/dotfiles/$1" "$HOME/.$target"
-}
-
 dotfile_links () {
   echo "Linking dotfiles..."
   safe_link "bash_profile"
@@ -199,7 +204,6 @@ dotfile_links () {
   safe_link "dotvim" "vim"
   safe_link "tmux.conf"
   safe_link "ackrc"
-  safe_link "gitconfig"
   safe_link "bash/inputrc" "inputrc"
   safe_link "gemrc"
   safe_link "minttyrc"
