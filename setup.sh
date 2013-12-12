@@ -16,15 +16,79 @@ linux_install_pkg () {
   fi
 }
 
+tmux_package=tmux-1.8.tar.gz
+tmux_base_url=http://downloads.sourceforge.net/tmux
+tmux_directory=tmux-1.8
+
+linux_build_tmux () {
+  echo "Installing tmux from source..."
+  if linux_check_pkg tmux; then sudo apt-get purge -y tmux; fi
+  if command -v tmux >/dev/null 2>&1; then
+	echo "Compiled tmux found... skipping"
+  else
+	linux_install_pkg libevent-dev
+	linux_install_pkg libncurses5-dev
+	if [ -z "$1" ]; then flags=""; else flags=$1; fi
+	wget $tmux_base_url/$tmux_package -O /tmp/$tmux_package
+	cwd=`pwd`
+	cd /tmp
+	tar xfz $tmux_package
+	cd $tmux_directory
+	./configure $flags
+	make
+	sudo make install
+	cd $cwd
+	echo "tmux install complete!"
+  fi
+}
+
+linux_tmux_lucid () {
+  if [ -a /usr/local/lib/libevent-2.0.so.5 ]; then
+	echo "Compiled libevent found... skipping"
+  else
+	libevent_package=libevent-2.0.21-stable.tar.gz
+	libevent_base_url=https://github.com/downloads/libevent/libevent
+	libevent_directory=libevent-2.0.21-stable
+	echo "Installing libevent for tmux..."
+	wget $libevent_base_url/$libevent_package -O /tmp/$libevent_package
+	cwd=`pwd`
+	cd /tmp
+	tar xfz $libevent_package
+	cd $libevent_directory
+	./configure
+	make
+	sudo make install
+	cd $cwd
+	echo "libevent install complete!"
+  fi
+  linux_build_tmux --enable-static
+}
+
+linux_tmux () {
+  if command -v tmux >/dev/null 2>&1; then
+	echo "tmux detected... skipping"
+  else
+	echo "Installing tmux from apt..."
+	sudo apt-get install tmux -y
+	echo "tmux install complete!"
+  fi
+}
+
 linux_setup () {
 
   # Return unless specific version is supported
-  if cat /etc/lsb-release | grep -q -e '10.04' -e '12.04' -e '13.10'; then
-    echo "Detected supported Ubuntu..."
+  if cat /etc/lsb-release | grep -q -e '10.04'; then
+    echo "Detected Ubuntu 10.04 Lucid..."
+	linux_version="lucid"
+  elif cat /etc/lsb-release | grep -q -e '12.04'; then
+    echo "Detected Ubuntu 12.04 Precise..."
+	linux_version="precise"
+  elif cat /etc/lsb-release | grep -q -e '13.10'; then
+    echo "Detected Ubuntu 13.10 Saucy..."
+	linux_version="saucy"
   else
 	echo "Unsupported Linux; skipping setup"; return
   fi
-
 
   echo -e "\nStarting package installation (may require sudo password)"
   linux_install_pkg "ack-grep"
@@ -34,8 +98,15 @@ linux_setup () {
   linux_install_pkg "ruby"
   linux_install_pkg "ruby1.9.1-dev"
   linux_install_pkg "ruby1.8-dev"
+  linux_install_pkg "wget"
+  linux_install_pkg "curl"
   echo -e "Package installation complete!\n"
 
+  case $linux_version in
+	lucid   ) linux_tmux_lucid   ;;
+	precise ) linux_build_tmux   ;;
+	default ) linux_tmux         ;;
+esac
 }
 
 osx_check_pkg () {
@@ -77,6 +148,10 @@ osx_setup () {
 
 }
 
+cygwin_setup () {
+  echo "Not implemented; install apt-cyg"
+}
+
 setup () {
   echo "Starting $OSTYPE setup..."
   case "$OSTYPE" in
@@ -86,7 +161,6 @@ setup () {
   esac
   echo "Setup for $OSTYPE complete!"
 }
-
 setup
 
 safe_link () {
@@ -98,7 +172,7 @@ safe_link () {
 	mv "$HOME/.$1" "$HOME/.${1}.dotfile_backup"
   fi
   echo "linking $1 to $target"
-  ln -sf "$HOME/dotfiles/$1" "$HOME/.$target"
+  ln -sfn "$HOME/dotfiles/$1" "$HOME/.$target"
 }
 
 dotfile_links () {
