@@ -1,65 +1,16 @@
-# Features
-  - Support for OS X, Linux, and Cygwin eases cross platform work
-  - Copy/paste integration inside vim/tmux, even host to guest VM using X11
-  - Simple bash prompt with host display over SSH and git integration
-  - Git optimizations for settings and aliases
-  - Solarized colorscheme optimizations for tmux, gnome-terminal, and vim
-  - Unified tmux/vim pane and split navigation with Ctrl-{h,j,k,l}
-  - Vim
-    - Copy/paste directly from vim to system clipboard (even inside a VM inside tmux)
-    - Command-T for fuzzy file opening
-    - Syntastic error checking support
-    - Powerline with fancy symbols
-    - Exuberant ctags navigation plus Tagbar
-    - Whitespace detection and highlighting
-    - Other sane defaults for searching, surround, and tpope plugins
-    - Support for .vimrc.local for colorscheme changes, etc.
-
-# Tested OSes
-  - OS X
-    - Lion
-    - Mountain Lion
-  - Ubuntu
-    - Lucid (10.04)
-    - Precise (12.04)
-    - Saucy (13.10)
-  - Cygwin (no documentation)
-  - Elementary OS Luna (see branch)
-
-# Prerequisites
+# Quickstart
   - Build Tools for Platform (build essentials, etc.)
-  - Homebrew (for OSX) with clean `brew doctor`
   - [ RVM ]( http://rvm.io ) with successful ruby compile
   - Configure Solarized for [ gnome-terminal ]( https://github.com/sigurdga/gnome-terminal-colors-solarized ) or [ iTerm2 ]( https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized ).  (or remove `altercation/vim-colors-solarized` from `vimrc`
-  - Patched (powerline font)[https://github.com/Lokaltog/powerline-fonts] set in your terminal (or change `Powerline_symbols` in `vimrc` to `compatible`). Inconsolata-dz/Source Code Pro patches recommended for Linux/OS X, but Consolas.ttf patched works best for Cygwin/mintty
   - Terminal set to login shell (if not possible, see patches on Elementary OS/Pantheon branch that switch sourcing order from `bash_profile` to `bashrc`; this is not the default due to integration with a Puppet configuration that overwrites .bashrc)
+  - (Optional) Patched (powerline font)[https://github.com/Lokaltog/powerline-fonts] set in your terminal (or change `Powerline_symbols` in `vimrc` to `compatible`). Inconsolata-dz/Source Code Pro patches recommended for Linux/OS X, but Consolas.ttf patched works best for Cygwin/mintty
 
-# Setup
     git clone https://github.com/josephlogik/dotfiles
     cd dotfiles/
-    #NOTE: delete .vim or other directories first!
     ./setup.sh
-
-  - Install tmux 1.8
-
-    ```
-    sudo apt-get purge tmux -y
-    sudo apt-get install libevent-dev ncurses-dev -y
-    wget http://downloads.sourceforge.net/tmux/tmux-1.8.tar.gz
-    tar xfz tmux-1.8.tar.gz
-    cd tmux-1.8
-    ./configure
-    make
-    sudo make install
-    ```
 
 # Install and configure for OSX
   - Install MacVim and mvim wrapper
-  - Install packages
-
-    ```
-    brew install ack tmux ctags xclip reattach-to-user-namespace
-    ```
   - Install Command Line tools for OSX (developer.apple.com)
   - Install XQuartz for Mountain Lion
   - Add XQuartz/X11 to "Login Items" for your account
@@ -93,3 +44,32 @@
 
     # Allow client to pass locale and git environment variables
     AcceptEnv LANG LC_* GIT_*
+
+# Features
+  - Support for OS X, Linux, and Cygwin eases cross platform work
+  - Copy/paste integration inside vim/tmux, even host to guest VM using X11
+  - Simple bash prompt with host display over SSH and git integration
+  - Git optimizations for settings and aliases
+  - Solarized colorscheme optimizations for tmux, gnome-terminal, and vim
+  - Unified tmux/vim pane and split navigation with Ctrl-{h,j,k,l}
+  - Vim
+    - Copy/paste directly from vim to system clipboard (even inside a VM inside tmux)
+    - Command-T for fuzzy file opening
+    - Syntastic error checking support
+    - Powerline with fancy symbols
+    - Exuberant ctags navigation plus Tagbar
+    - Whitespace detection and highlighting
+    - Other sane defaults for searching, surround, and tpope plugins
+    - Support for .vimrc.local for colorscheme changes, etc.
+
+# Tested OSes
+  - OS X
+    - Lion
+    - Mountain Lion
+  - Ubuntu
+    - Lucid (10.04)
+    - Precise (12.04)
+    - Saucy (13.10)
+  - Cygwin (no documentation)
+  - Elementary OS Luna (see branch)
+
