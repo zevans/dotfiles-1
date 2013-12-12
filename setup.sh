@@ -230,11 +230,15 @@ build_commandt () {
 	echo "Cannot find Command-T bundle... exiting!"
 	return
   fi
-  [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-  rvm use system
-  ruby extconf.rb
-  make
-  echo "Build complete!"
+  if [[ -e ext.o && -e match.o && -e matcher.o ]]; then
+	echo "Compiled Command-T found... skipping"
+  else
+	[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+	rvm use system
+	ruby extconf.rb
+	make
+	echo "Build complete!"
+  fi
 }
 build_commandt
 
