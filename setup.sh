@@ -93,11 +93,11 @@ linux_setup () {
   if cat /etc/lsb-release | grep -q -e '10.04'; then
     echo "Detected Ubuntu 10.04 Lucid..."
 	linux_version="lucid"
-	safe_link "gitconfig-compat" "gitconfig"
+	safe_link "gitconfig-current" "gitconfig"
   elif cat /etc/lsb-release | grep -q -e '12.04'; then
     echo "Detected Ubuntu 12.04 Precise..."
 	linux_version="precise"
-	safe_link "gitconfig"
+	safe_link "gitconfig-upstream" "gitconfig"
   elif cat /etc/lsb-release | grep -q -e '13.10'; then
     echo "Detected Ubuntu 13.10 Saucy..."
 	linux_version="saucy"
