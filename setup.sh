@@ -106,7 +106,15 @@ linux_setup () {
 	lucid   ) linux_tmux_lucid   ;;
 	precise ) linux_build_tmux   ;;
 	default ) linux_tmux         ;;
-esac
+  esac
+
+  if cat vimrc.local | grep -q ackprg; then
+	echo "Ack binary set correctly... skipping"
+  else
+	echo "Setup ack binary to ack-grep for vim"
+	echo "let g:ackprg=\"ack-grep -H --nocolor --nogroup --column\"" >> vimrc.local
+	echo "Ack binary setup for vim complete!"
+  fi
 }
 
 osx_check_pkg () {
