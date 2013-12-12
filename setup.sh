@@ -43,7 +43,7 @@ linux_build_tmux () {
 }
 
 linux_tmux_lucid () {
-  if [ -a /usr/local/lib/libevent-2.0.so.5 ]; then
+  if [ -e /usr/local/lib/libevent-2.0.so.5 ]; then
 	echo "Compiled libevent found... skipping"
   else
 	libevent_package=libevent-2.0.21-stable.tar.gz
