@@ -232,6 +232,8 @@ cygwin_setup () {
   #cygwin_install_pkg "libreadline7"
   #cygwin_install_pkg "libxml2-devel"
   #cygwin_install_pkg "libxslt-devel"
+
+  safe_link "gitconfig-upstream" "gitconfig"
 }
 
 setup () {
