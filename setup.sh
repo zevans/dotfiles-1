@@ -15,6 +15,16 @@ safe_link () {
   ln -sfn "$HOME/dotfiles/$1" "$HOME/.$target"
 }
 
+rvm_install () {
+  if command -v rvm >/dev/null 2>&1; then
+	echo "rvm installed... skipping"
+  else
+   	echo "Installing rvm"
+	curl -sSL https://get.rvm.io | bash -s stable
+	echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"' >> ~/.bash_profile
+	source ~/.bash_profile
+  fi
+}
 
 linux_check_pkg () {
   if [ -z "$1" ]; then return "$E_ARGUMENT"; fi
@@ -119,6 +129,8 @@ linux_setup () {
   linux_install_pkg "curl"
   echo -e "Package installation complete!\n"
 
+  rvm_install
+
   case $linux_version in
 	lucid   ) linux_tmux_lucid   ;;
 	precise ) linux_build_tmux   ;;
@@ -176,6 +188,8 @@ osx_setup () {
   osx_install_pkg reattach-to-user-namespace
 
   safe_link "gitconfig"
+
+  rvm_install
 }
 
 cygwin_check_pkg () {
@@ -208,8 +222,12 @@ cygwin_setup () {
   cygwin_install_pkg "vim"
   cygwin_install_pkg "screen"
   cygwin_install_pkg "ruby"
-  # Not sure if needed for clean install or only for ruby compile?
+  cygwin_install_pkg "curl"
+
+  rvm_install
   #rvm autolibs disable
+
+  # Needed for clean install or only for ruby compile?
   #cygwin_install_pkg "libiconv"
   #cygwin_install_pkg "libreadline7"
   #cygwin_install_pkg "libxml2-devel"
@@ -294,9 +312,3 @@ build_commandt () {
 build_commandt
 
 echo 'Close existing terminals or `source ~/.bash_profile`'
-
-#command -v curl >/dev/null 2>&1 || { echo "Installing curl (using sudo):"; sudo apt-get install curl; }
-#command -v rvm >/dev/null 2>&1 || { echo "Installing rvm";
-                                    #curl -sSL https://get.rvm.io | bash -s stable;
-									#echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"' >> ~/.bash_profile; }
-#source ~/.bash_profile
