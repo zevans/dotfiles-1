@@ -1,6 +1,7 @@
 #!/bin/bash
 
 E_ARGUMENT=11 # change later?
+E_DEPENDENCY=12
 
 safe_link () {
   if [ -z "$1" ]; then return "$E_ARGUMENT"; fi
@@ -177,8 +178,42 @@ osx_setup () {
   safe_link "gitconfig"
 }
 
+cygwin_check_pkg () {
+  if [ -z "$1" ]; then return "$E_ARGUMENT"; fi
+  if command -v apt-cyg >/dev/null 2>&1; then
+	apt-cyg show 2>&1 | grep -q ^$1$
+  else
+	return $E_DEPENDENCY
+  fi
+}
+
+cygwin_install_pkg () {
+  if [ -z "$1" ]; then return "$E_ARGUMENT"; fi
+  if cygwin_check_pkg $1; then
+	echo "$1 already installed... skipping"
+  else
+	apt-cyg -u install $1
+  fi
+}
+
 cygwin_setup () {
-  echo "Not implemented; install apt-cyg"
+  if [ -h /usr/bin/apt-cyg ]; then
+	echo "apt-cyg linked... skipping"
+  else
+	echo "Linking apt-cyg into /usr/bin"
+	ln -sf $HOME/dotfiles/windows/apt-cyg /usr/bin/apt-cyg
+	echo "apt-cyg linking complete!"
+  fi
+
+  cygwin_install_pkg "vim"
+  cygwin_install_pkg "screen"
+  cygwin_install_pkg "ruby"
+  # Not sure if needed for clean install or only for ruby compile?
+  #rvm autolibs disable
+  #cygwin_install_pkg "libiconv"
+  #cygwin_install_pkg "libreadline7"
+  #cygwin_install_pkg "libxml2-devel"
+  #cygwin_install_pkg "libxslt-devel"
 }
 
 setup () {
@@ -265,9 +300,3 @@ echo 'Close existing terminals or `source ~/.bash_profile`'
                                     #curl -sSL https://get.rvm.io | bash -s stable;
 									#echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"' >> ~/.bash_profile; }
 #source ~/.bash_profile
-#rvm install ruby
-#rvm use ruby
-
-#gem install rake
-#rake setup
-
