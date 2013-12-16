@@ -8,6 +8,7 @@ alias l='ls'
 alias ll='ls -alh'
 
 alias g=git
+alias v=vagrant
 
 alias go='foreman start'
 
