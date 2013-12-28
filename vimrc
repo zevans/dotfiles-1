@@ -43,7 +43,7 @@ set vb t_vb=
 " Key Mappings
 "------------------------------------------------------------------------------
 nmap <leader>v :tabedit $MYVIMRC<CR>
-nmap <leader>l :set list!<CR>
+nmap <leader>sl :set list!<CR>
 nmap <leader>g :Gstatus<CR>
 imap <C-l> <Space>=><Space>
 noremap <leader>y "+y
@@ -53,10 +53,11 @@ map <Leader>ct :!ctags -R .<CR>
 map <Leader>h :TagbarToggle<CR>
 
 " Rspec.vim mappings
-map <Leader>S :call RunCurrentSpecFile()<CR>
-map <Leader>N :call RunNearestSpec()<CR>
-map <Leader>L :call RunLastSpec()<CR>
-map <Leader>A :call RunAllSpecs()<CR>
+map <leader>s :call RunCurrentSpecFile()<CR>
+map <leader>n :call RunNearestSpec()<CR>
+map <leader>l :call RunLastSpec()<CR>
+map <leader>a :call RunAllSpecs()<CR>
+let g:rspec_command = 'Dispatch rspec {spec}'
 
 "==============================================================================
 " Appearance options
