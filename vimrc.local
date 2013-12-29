@@ -7,3 +7,4 @@ set background=dark
 silent! colorscheme solarized
 silent! call togglebg#map("")
 let g:Powerline_symbols = 'compatible'
+let g:rspec_command = 'compiler rspec | set makeprg=rspec | Make {spec}'

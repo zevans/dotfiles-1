@@ -57,7 +57,6 @@ map <leader>s :call RunCurrentSpecFile()<CR>
 map <leader>n :call RunNearestSpec()<CR>
 map <leader>l :call RunLastSpec()<CR>
 map <leader>a :call RunAllSpecs()<CR>
-let g:rspec_command = 'Dispatch rspec {spec}'
 
 "==============================================================================
 " Appearance options
