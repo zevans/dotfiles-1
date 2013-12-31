@@ -8,7 +8,7 @@ source ~/dotfiles/bash/env
 source ~/dotfiles/bash/config
 source ~/dotfiles/bash/aliases
 if [ -z "$GIT_AUTHOR_NAME" ]; then
-  source ~/dotfiles/bash/git_identity
+  source "$HOME/dotfiles/git_identity.local"
 fi
 
 # terminal coloring

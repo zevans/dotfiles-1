@@ -288,6 +288,7 @@ git_ignore_local_mods () {
   echo "Ignoring future .local modifications..."
   git update-index --assume-unchanged vimrc.local
   git update-index --assume-unchanged vimrc.bundles.local
+  git update-index --assume-unchanged git_identity.local
   echo "Local modification ignore complete!"
 }
 git_ignore_local_mods
