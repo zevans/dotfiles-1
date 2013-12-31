@@ -1,19 +1,35 @@
 # Quickstart
-  - Build Tools for Platform (build essentials, etc.)
-  - [ RVM ]( http://rvm.io ) with successful ruby compile
-  - Configure Solarized for [ gnome-terminal ]( https://github.com/sigurdga/gnome-terminal-colors-solarized ) or [ iTerm2 ]( https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized ).  (or remove `altercation/vim-colors-solarized` from `vimrc`
-  - Terminal set to login shell (if not possible, see patches on Elementary OS/Pantheon branch that switch sourcing order from `bash_profile` to `bashrc`; this is not the default due to integration with a Puppet configuration that overwrites .bashrc)
-  - (Optional) Patched (powerline font)[https://github.com/Lokaltog/powerline-fonts] set in your terminal (or change `Powerline_symbols` in `vimrc` to `compatible`). Inconsolata-dz/Source Code Pro patches recommended for Linux/OS X, but Consolas.ttf patched works best for Cygwin/mintty
 
-    git clone https://github.com/josephlogik/dotfiles
-    cd dotfiles/
+Install pre-requisites, then clone and run setup script.  **Setup script should be rerun on every subsequent update to ensure that any new dotfiles are configured correctly!**
+
+## Ubuntu Linux
+  - Set terminal of choice to login shell
+  - Run the following in terminal of choice:
+
+    ```
+    sudo apt-get update
+    sudo apt-get install git
+    cd ~ && git clone https://github.com/josephlogik/dotfiles.git
+    cd ~/dotfiles
     ./setup.sh
+    ```
 
-# Install and configure for OSX
-  - Install MacVim and mvim wrapper
-  - Install Command Line tools for OSX (developer.apple.com)
-  - Install XQuartz for Mountain Lion
-  - Add XQuartz/X11 to "Login Items" for your account
+  - *(optional)* Configure Solarized for [gnome-terminal](https://github.com/sigurdga/gnome-terminal-colors-solarized) or your terminal of choice
+  - *(optional)* Setup patched [fonts for powerline](https://github.com/Lokaltog/powerline-fonts); Recommended font for Linux is Source Code Pro
+
+  - *(optional)* For Linux virtual machines, you can pass your Git identity in to the machine via SSH if you modify your sshd config file's `AcceptEnv` directive as follows:
+
+    ```
+    # Allow client to pass locale and git environment variables
+    AcceptEnv LANG LC_* GIT_*
+    ```
+
+## Mac OS X
+  - Install [iTerm2](http://www.iterm2.com)
+  - Install [Command Line Tools for XCode](https://developer.apple.com/downloads/index.action)
+  - Install [MacVim](https://code.google.com/p/macvim/) and copy `mvim` CLI wrapper to `/usr/local/bin`
+  - Install [XQuartz](http://xquartz.macosforge.org/) for Mountain Lion/Mavericks (X11 is included by default on Lion)
+  - Add XQuartz/X11 to "Login Items" for your account under System Preferences
   - In XQuartz/X11 preferences, check all boxes under "Pasteboard" to enable copy/paste sync
   - Fix Command Line tools
 
@@ -26,50 +42,64 @@
     sudo chmod 755 /usr/bin/xcrun
     ```
 
-# Install and configure for Windows/Cygwin
+  - Run the following in iTerm2:
+
+    ```
+    cd ~ && git clone https://github.com/josephlogik/dotfiles.git
+    cd ~/dotfiles
+    ./setup.sh
+    ```
+
+  - *(optional)* Configure [Solarized for iTerm2]( https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized )
+  - *(optional)* Setup patched [fonts for powerline](https://github.com/Lokaltog/powerline-fonts); Recommended font for OS X is Inconsolata-dz
+
+## Cygwin on Windows
+  - Install Cygwin and include git package
   - Install XWin server
-  - For copy/paste integration through vim, with the same config as Linux/O X, add a shortcut to the "Startup" group with the target
+  - For copy/paste integration through vim, with the same config as Linux/OS X, add a shortcut to the "Startup" group with the target
 
     ```
     C:\cygwin\\bin\run.exe -p /usr/X11R6/bin XWin -multiwindow -clipboard -silent-dup-error
     ```
 
-# Configure git identity
-    cp ~/dotfiles/bash/git_identity.example ~/dotfiles/bash/git_identity
-    vim ~/dotfiles/bash/git_identity
+  - Run the following in Cygwin terminal (mintty)
 
-  Note: this sets `GIT_` environment variables that can be accepted over SSH by
-  a virtual machine to avoid setting this multiple places if your sshd config
-  on the VM allows these through `AcceptEnv`
+    ```
+    cd ~ && git clone https://github.com/josephlogik/dotfiles.git
+    cd ~/dotfiles
+    ./setup.sh
+    ```
 
-    # Allow client to pass locale and git environment variables
-    AcceptEnv LANG LC_* GIT_*
+  - *(optional)* Setup patched [fonts for powerline](https://github.com/Lokaltog/powerline-fonts); Recommended font for Cygwin/mintty is Consolas.ttf
 
 # Features
-  - Support for OS X, Linux, and Cygwin eases cross platform work
-  - Copy/paste integration inside vim/tmux, even host to guest VM using X11
-  - Simple bash prompt with host display over SSH and git integration
-  - Git optimizations for settings and aliases
+  - Support for Ubuntu Linux, Mac OS X, and Cygwin on Windows eases cross platform work
+  - Copy/paste integration inside vim/tmux, even bi-directional host-to-guest-VM using X11
+  - Simple bash prompt with host display over SSH and directory colors
+  - Git optimizations for settings and aliases and identity
   - Solarized colorscheme optimizations for tmux, gnome-terminal, and vim
   - Unified tmux/vim pane and split navigation with Ctrl-{h,j,k,l}
   - Vim
     - Copy/paste directly from vim to system clipboard (even inside a VM inside tmux)
     - Command-T for fuzzy file opening
     - Syntastic error checking support
-    - Powerline with fancy symbols
+    - Powerline with fancy symbols (enable in vimrc.local)
     - Exuberant ctags navigation plus Tagbar
     - Whitespace detection and highlighting
+    - Run specs in tmux split using vim-dispatch and vim-rspec
     - Other sane defaults for searching, surround, and tpope plugins
-    - Support for .vimrc.local for colorscheme changes, etc.
+
+## Customization
+  - `~/.vimrc.local` for keybindings, and personal settings
+  - `~/.vimrc.bundles.local` for personal vim bundles
+  - `~/dotfiles/git_identity.local` for git identity environment variables
 
 # Tested OSes
-  - OS X
+  - Mac OS X
     - Lion
     - Mountain Lion
-  - Ubuntu
+  - Ubuntu Linux
     - Lucid (10.04)
     - Precise (12.04)
     - Saucy (13.10)
-  - Cygwin (no documentation)
-  - Elementary OS Luna (see branch)
-
+  - Cygwin on Windows
