@@ -86,7 +86,7 @@ set smartindent       " Increases indent on the next line for '{' and others
 "autocmd Filetype yaml     setlocal ts=2 sts=2 sw=2 expandtab
 "autocmd Filetype puppet   setlocal ts=2 sts=2 sw=2 expandtab
 "autocmd Filetype markdown setlocal ts=2 sts=2 sw=2 expandtab
-autocmd Filetype sh setlocal ts=4 noexpandtab
+"autocmd Filetype sh setlocal ts=4 noexpandtab
 
 "==============================================================================
 " Add "C-p" insert paste mode toggle for pasting indented code into console VIM
