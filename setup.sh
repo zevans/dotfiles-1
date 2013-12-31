@@ -117,6 +117,11 @@ linux_setup () {
 	echo "Unsupported Linux; skipping setup"; return
   fi
 
+  if [ "$COLORTERM" == "xfce4-terminal" ] &&
+     [ -e "$HOME/.config/xfce4/terminal/terminalrc" ]; then
+	safe_link "terminals/xfce.terminalrc" "config/xfce4/terminal/terminalrc"
+  fi
+
   echo -e "\nStarting package installation (may require sudo password)"
   linux_install_pkg "ack-grep"
   linux_install_pkg "exuberant-ctags"

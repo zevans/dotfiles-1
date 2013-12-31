@@ -14,7 +14,7 @@ Install pre-requisites, then clone and run setup script.  **Setup script should 
     ./setup.sh
     ```
 
-  - *(optional)* Configure Solarized for [gnome-terminal](https://github.com/sigurdga/gnome-terminal-colors-solarized) or your terminal of choice
+  - *(optional)* Configure Solarized for [gnome-terminal](https://github.com/sigurdga/gnome-terminal-colors-solarized) or your terminal of choice (xfce-terminal already pre-configured)
   - *(optional)* Setup patched [fonts for powerline](https://github.com/Lokaltog/powerline-fonts); Recommended font for Linux is Source Code Pro
 
   - *(optional)* For Linux virtual machines, you can pass your Git identity in to the machine via SSH if you modify your sshd config file's `AcceptEnv` directive as follows:
