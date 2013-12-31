@@ -261,6 +261,7 @@ dotfile_links () {
   safe_link "vimrc.bundles"
   safe_link "vimrc.bundles.local"
   safe_link "gvimrc"
+  safe_link "gvimrc.local"
   safe_link "dotvim" "vim"
   safe_link "tmux.conf"
   safe_link "ackrc"
@@ -292,6 +293,7 @@ vim_bundles
 git_ignore_local_mods () {
   echo "Ignoring future .local modifications..."
   git update-index --assume-unchanged vimrc.local
+  git update-index --assume-unchanged gvimrc.local
   git update-index --assume-unchanged vimrc.bundles.local
   git update-index --assume-unchanged git_identity.local
   echo "Local modification ignore complete!"

@@ -1,0 +1,7 @@
+" This is a git ignored file
+" Set colorschemes and local options here
+
+" Solarized
+set background=light
+"set guifont=Ubuntu\ Mono\ 12 # vim-gtk
+"set guifont=Inconsolata-dz\ for\ Powerline:h14 " MacVim

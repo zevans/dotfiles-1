@@ -91,6 +91,7 @@ Install pre-requisites, then clone and run setup script.  **Setup script should 
 
 ## Customization
   - `~/.vimrc.local` for keybindings, and personal settings
+  - `~/.gvimrc.local` for guifont and other personal gui settings
   - `~/.vimrc.bundles.local` for personal vim bundles
   - `~/dotfiles/git_identity.local` for git identity environment variables
 
