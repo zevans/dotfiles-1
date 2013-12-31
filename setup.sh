@@ -263,6 +263,7 @@ dotfile_links () {
   safe_link "gemrc"
   safe_link "minttyrc"
   safe_link "screenrc"
+  safe_link "dircolors"
   echo "Dotfile linking complete!"
 }
 

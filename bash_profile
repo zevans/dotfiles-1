@@ -16,8 +16,9 @@ if [ "$COLORTERM" == "gnome-terminal" ] ||
    [ "$COLORTERM" == "xfce4-terminal" ]; then
 	export TERM="xterm-256color"
 fi
-export CLICOLOR=1
-export LSCOLORS=dxfxxxxxbxegedbxbxdxdx
+if [ -e "$HOME/.dircolors" ]; then
+  source "$HOME/.dircolors"
+fi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
