@@ -113,9 +113,12 @@ set showmode
 "augroup END
 
 "==============================================================================
-" Debian/Ubuntu options
+" Vim-fugitive settings
 "------------------------------------------------------------------------------
-"let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+if has("autocmd")
+  autocmd QuickFixCmdPost *grep* cwindow "open quickfix for Ggrep
+  autocmd QuickFixCmdPost *Glog* cwindow "open quickfix for Glog
+endif
 
 "==============================================================================
 " Source the vimrc file after saving it; Map leader-v to edit
