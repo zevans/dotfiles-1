@@ -7,14 +7,14 @@ alias hgrep='history | grep'
 GNU_LS_COLOR_FLAG="--color=auto"
 BSD_LS_COLOR_FLAG="-G"
 if [[ ( $OSTYPE == darwin* ) ]]; then
-  LS_COLOR_FLAG="$BSD_LS_COLOR"
+  LS_COLOR_FLAG="$BSD_LS_COLOR_FLAG"
 else
-  LS_COLOR_FLAG="$GNU_LS_COLOR"
+  LS_COLOR_FLAG="$GNU_LS_COLOR_FLAG"
 fi
 
-alias l="ls $LS_COLOR"
-alias ls="ls $LS_COLOR"
-alias ll="ls -alh $LS_COLOR"
+alias l="ls $LS_COLOR_FLAG"
+alias ls="ls $LS_COLOR_FLAG"
+alias ll="ls -alh $LS_COLOR_FLAG"
 
 alias g=git
 alias v=vagrant
