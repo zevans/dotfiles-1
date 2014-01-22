@@ -4,9 +4,17 @@ alias reload='source ~/dotfiles/bash/aliases'
 alias h=history
 alias hgrep='history | grep'
 
-alias l='ls --color=auto'
-alias ls='ls --color=auto'
-alias ll='ls -alh --color=auto'
+GNU_LS_COLOR_FLAG="--color=auto"
+BSD_LS_COLOR_FLAG="-G"
+if [[ ( $OSTYPE == darwin* ) ]]; then
+  LS_COLOR_FLAG="$BSD_LS_COLOR"
+else
+  LS_COLOR_FLAG="$GNU_LS_COLOR"
+fi
+
+alias l="ls $LS_COLOR"
+alias ls="ls $LS_COLOR"
+alias ll="ls -alh $LS_COLOR"
 
 alias g=git
 alias v=vagrant
