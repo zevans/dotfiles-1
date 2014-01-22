@@ -38,6 +38,10 @@ set backspace=indent,eol,start
 set wildmenu
 set incsearch
 set vb t_vb=
+set mouse+=a
+if &term =~ '^screen'
+  set ttymouse=xterm2 " tmux knows the extended mouse mode
+endif
 
 "==============================================================================
 " Key Mappings
