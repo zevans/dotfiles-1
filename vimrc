@@ -55,6 +55,7 @@ noremap <leader>yy "+Y
 noremap <leader>p "+p
 map <Leader>ct :!ctags -R .<CR>
 map <Leader>h :TagbarToggle<CR>
+map <Leader>q :NERDTreeTabsToggle<CR>
 
 " Rspec.vim mappings
 map <leader>s :call RunCurrentSpecFile()<CR>
@@ -75,6 +76,7 @@ set listchars=tab:▸\ ,eol:¬
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
 
+let g:nerdtree_tabs_open_on_console_startup=1
 
 "==============================================================================
 " Tab and indent options

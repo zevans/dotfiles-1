@@ -29,6 +29,8 @@ Bundle 'majutsushi/tagbar'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'saltstack/salt-vim'
 Bundle 'mhinz/vim-signify'
+Bundle 'scrooloose/nerdtree'
+Bundle 'jistr/vim-nerdtree-tabs'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
