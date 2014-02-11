@@ -76,8 +76,6 @@ set listchars=tab:▸\ ,eol:¬
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
 
-let g:nerdtree_tabs_open_on_console_startup=1
-
 "==============================================================================
 " Tab and indent options
 "------------------------------------------------------------------------------
