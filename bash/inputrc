@@ -1,1 +1,5 @@
 set bell-style none
+
+# Added from Saucy /etc/inputrc due to issues with running on bare metal
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line

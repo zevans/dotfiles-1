@@ -139,7 +139,7 @@ linux_setup () {
   case $linux_version in
 	lucid   ) linux_tmux_lucid   ;;
 	precise ) linux_build_tmux   ;;
-	default ) linux_tmux         ;;
+	*       ) linux_tmux         ;;
   esac
 
   if cat vimrc.local | grep -q ackprg; then
