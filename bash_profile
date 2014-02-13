@@ -4,6 +4,7 @@ source ~/.bashrc #for integration with work puppet bashrc
 source ~/dotfiles/bash_completion.d/git-completion.bash
 source ~/dotfiles/bash_completion.d/git-prompt.sh
 source ~/dotfiles/bash_completion.d/tmux
+source ~/dotfiles/bash_completion.d/capistrano-completion.bash
 source ~/dotfiles/bash/env
 source ~/dotfiles/bash/config
 source ~/dotfiles/bash/aliases
