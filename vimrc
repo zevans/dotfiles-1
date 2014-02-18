@@ -74,6 +74,7 @@ if exists('+colorcolumn') " Marks the 80th character column
   set colorcolumn=80
 endif
 set listchars=tab:▸\ ,eol:¬
+set showbreak=↪
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
 
