@@ -42,6 +42,7 @@ set mouse+=a
 if &term =~ '^screen'
   set ttymouse=xterm2 " tmux knows the extended mouse mode
 endif
+runtime macros/matchit.vim
 
 "==============================================================================
 " Key Mappings
