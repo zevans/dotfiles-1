@@ -63,3 +63,6 @@ else
 fi
 
 unset RED YELLOW GREEN RESET
+
+#Allow for easy hidden commands with leading space
+export HISTCONTROL=ignorespace
