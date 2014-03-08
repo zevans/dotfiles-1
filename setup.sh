@@ -112,7 +112,11 @@ linux_setup () {
   elif cat /etc/lsb-release | grep -q -e '13.10'; then
     echo "Detected Ubuntu 13.10 Saucy..."
 	linux_version="saucy"
-  safe_link "gitconfig"
+     safe_link "gitconfig"
+  elif cat /etc/lsb-release | grep -q -e '14.04'; then
+    echo "Detected Ubuntu 14.04 Trusty..."
+	linux_version="trusty"
+     safe_link "gitconfig"
   else
 	echo "Unsupported Linux; skipping setup"; return
   fi
