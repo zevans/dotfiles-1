@@ -21,7 +21,7 @@ _cap_complete ()
       echo "$(pwd)" >$cache_file
       cap -qT 2>/dev/null | grep '^cap' | awk '{print $2}' >>$cache_file
     fi
-    COMPREPLY=( $(compgen -W "$(tail +2 $cache_file)" -- $cur) )
+    COMPREPLY=( $(compgen -W "$(tail -c +2 $cache_file)" -- $cur) )
   fi
 
 } 
