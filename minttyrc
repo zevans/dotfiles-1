@@ -28,3 +28,4 @@ Scrollbar=none
 BackspaceSendsBS=no
 Font=Consolas for Powerline FixedD
 FontHeight=11
+CtrlShiftShortcuts=yes
