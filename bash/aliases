@@ -28,7 +28,6 @@ fi
 
 if [[ ( $OSTYPE == cygwin ) ]]; then
 	alias vim='gvim -v'
-	alias tmux='screen'
 	alias 'apt-get'='apt-cyg -u'
 	alias 'apt-cache'='apt-cyg -u'
 fi

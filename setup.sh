@@ -229,7 +229,7 @@ cygwin_setup () {
   fi
 
   cygwin_install_pkg "vim"
-  cygwin_install_pkg "screen"
+  cygwin_install_pkg "tmux"
   cygwin_install_pkg "ruby"
   cygwin_install_pkg "curl"
 
