@@ -6,10 +6,10 @@ E_DEPENDENCY=12
 safe_link () {
   if [ -z "$1" ]; then return "$E_ARGUMENT"; fi
   if [ -z "$2" ]; then target=$1; else target=$2; fi
-  # If not a symbolic link or directory, backup first
-  if [[ ! -L "$HOME/.$1" && ! -d "$HOME/.$1"  && -e $HOME/.$1 ]]; then
-	echo "Making backup of $HOME/.$1 at $HOME/.${1}.dotfile_backup"
-	mv "$HOME/.$1" "$HOME/.${1}.dotfile_backup"
+  # If not a symbolic link, backup first
+  if [[ ! -L "$HOME/.$target" && -e "$HOME/.$target" ]]; then
+	echo "Making backup of $HOME/.$target at $HOME/.${target}.dotfile_backup"
+	mv "$HOME/.$target" "$HOME/.${target}.dotfile_backup"
   fi
   echo "linking $1 to $target"
   ln -sfn "$HOME/dotfiles/$1" "$HOME/.$target"
