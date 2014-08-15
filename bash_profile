@@ -66,3 +66,6 @@ unset RED YELLOW GREEN RESET
 
 #Allow for easy hidden commands with leading space
 export HISTCONTROL=ignorespace
+
+#Give RVM a chance to load after tmux split
+cd ..;cd -
