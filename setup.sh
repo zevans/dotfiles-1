@@ -180,7 +180,7 @@ osx_setup () {
 	echo "Homebrew detected... skipping"
   else
 	echo "Installing Homebrew..."
-	ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
+	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	echo "Homebrew install complete!"
   fi
 
