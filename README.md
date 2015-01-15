@@ -54,7 +54,7 @@ Install pre-requisites, then clone and run setup script.  **Setup script should 
   - *(optional)* Setup patched [fonts for powerline](https://github.com/Lokaltog/powerline-fonts); Recommended font for OS X is Inconsolata-dz
 
 ## Cygwin on Windows
-  - Install Cygwin and include git package
+  - Install Cygwin and include git and wget packages
   - Install XWin server
   - For copy/paste integration through vim, with the same config as Linux/OS X, add a shortcut to the "Startup" group with the target
 
