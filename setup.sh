@@ -204,7 +204,7 @@ osx_setup () {
 cygwin_check_pkg () {
   if [ -z "$1" ]; then return "$E_ARGUMENT"; fi
   if command -v apt-cyg >/dev/null 2>&1; then
-	apt-cyg show 2>&1 | grep -q ^$1$
+	apt-cyg list 2>&1 | grep -q ^$1$
   else
 	return $E_DEPENDENCY
   fi
@@ -215,7 +215,7 @@ cygwin_install_pkg () {
   if cygwin_check_pkg $1; then
 	echo "$1 already installed... skipping"
   else
-	apt-cyg -u install $1
+	apt-cyg install $1
   fi
 }
 
