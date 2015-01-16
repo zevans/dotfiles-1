@@ -55,13 +55,6 @@ Install pre-requisites, then clone and run setup script.  **Setup script should 
 
 ## Cygwin on Windows
   - Install Cygwin and include git and wget packages
-  - Install XWin server
-  - For copy/paste integration through vim, with the same config as Linux/OS X, add a shortcut to the "Startup" group with the target
-
-    ```
-    C:\cygwin\\bin\run.exe -p /usr/X11R6/bin XWin -multiwindow -clipboard -silent-dup-error
-    ```
-
   - Run the following in Cygwin terminal (mintty)
 
     ```
@@ -69,6 +62,12 @@ Install pre-requisites, then clone and run setup script.  **Setup script should 
     cd ~/dotfiles
     ./setup.sh
     ```
+  - For copy/paste integration through vim, with the same config as Linux/OS X, add a shortcut to the "Startup" group with the target
+
+    ```
+    C:\cygwin\\bin\run.exe -p /usr/X11R6/bin XWin -multiwindow -clipboard -silent-dup-error
+    ```
+
 
   - *(optional)* Setup patched [fonts for powerline](https://github.com/Lokaltog/powerline-fonts); Recommended font for Cygwin/mintty is Consolas.ttf
 

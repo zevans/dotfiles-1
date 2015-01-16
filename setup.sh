@@ -234,6 +234,8 @@ cygwin_setup () {
   cygwin_install_pkg "curl"
   cygwin_install_pkg "gcc-core"
   cygwin_install_pkg "make"
+  cygwin_install_pkg "xinit"
+  cygwin_install_pkg "xclip"
 
   rvm_install
   #rvm autolibs disable
