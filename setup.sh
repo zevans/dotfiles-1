@@ -232,6 +232,8 @@ cygwin_setup () {
   cygwin_install_pkg "tmux"
   cygwin_install_pkg "ruby"
   cygwin_install_pkg "curl"
+  cygwin_install_pkg "gcc-core"
+  cygwin_install_pkg "make"
 
   rvm_install
   #rvm autolibs disable
