@@ -27,9 +27,8 @@ if [[ ( $OSTYPE == darwin* ) ]]; then
 fi
 
 if [[ ( $OSTYPE == cygwin ) ]]; then
-	alias vim='gvim -v'
-	alias 'apt-get'='apt-cyg -u'
-	alias 'apt-cache'='apt-cyg -u'
+	alias 'apt-get'='apt-cyg'
+	alias 'apt-cache'='apt-cyg'
 fi
 
 alias ev='vim ~/.vimrc'
