@@ -190,10 +190,11 @@ osx_setup () {
 	echo "WARNING!!! Correct any errors/warnings from 'brew doctor'"
   fi
 
+  osx_install_pkg vim
   osx_install_pkg ack
   osx_install_pkg tmux
   osx_install_pkg ctags
-  osx_install_pkg xclip
+  osx_install_pkg homebrew/x11/xclip
   osx_install_pkg reattach-to-user-namespace
 
   safe_link "gitconfig"
