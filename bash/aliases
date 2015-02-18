@@ -22,7 +22,6 @@ alias v=vagrant
 alias go='foreman start'
 
 if [[ ( $OSTYPE == darwin* ) ]]; then
-	alias vim='mvim -v'
 	alias tmux='~/dotfiles/tmux_wrapper'
 fi
 
