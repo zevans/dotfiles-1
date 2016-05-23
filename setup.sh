@@ -41,7 +41,7 @@ linux_install_pkg () {
 }
 
 tmux_package=tmux-1.8.tar.gz
-tmux_base_url=http://downloads.sourceforge.net/tmux
+tmux_base_url=https://github.com/tmux/tmux/releases/download/1.8
 tmux_directory=tmux-1.8
 
 linux_build_tmux () {
